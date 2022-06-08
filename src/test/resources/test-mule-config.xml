@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:amazon-polly="http://www.mulesoft.org/schema/mule/amazon-polly"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/amazon-polly http://www.mulesoft.org/schema/mule/amazon-polly/current/mule-amazon-polly.xsd">
+
+    <amazon-polly:config name="config" configId="configId">
+        <amazon-polly:connection requiredParameter="aValue" />
+    </amazon-polly:config>
+
+    <flow name="sayHiFlow">
+        <amazon-polly:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <amazon-polly:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
